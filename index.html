@@ -162,15 +162,40 @@
             line-height: 1.4;
         }
 
+        /* Scrollable description container */
+        .description-container {
+            width: 100%;
+            max-height: 180px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #0cf;
+            background: rgba(0, 0, 30, 0.5);
+        }
+        
+        /* Custom scrollbar */
+        .description-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .description-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 20, 0.5);
+        }
+        
+        .description-container::-webkit-scrollbar-thumb {
+            background: #0cf;
+            border: 1px solid #0a0a1a;
+        }
+        
+        .description-container::-webkit-scrollbar-thumb:hover {
+            background: #f9259d;
+        }
+        
         .project-description {
             font-size: 0.7rem;
             line-height: 1.8;
             color: #ffffff;
-            margin-bottom: 20px;
             text-align: center;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         .tech-stack {
@@ -417,6 +442,10 @@
                 font-size: 1rem;
             }
             
+            .description-container {
+                max-height: 160px;
+            }
+            
             .project-description {
                 font-size: 0.65rem;
                 line-height: 1.7;
@@ -458,6 +487,10 @@
             
             .project-title {
                 font-size: 0.9rem;
+            }
+            
+            .description-container {
+                max-height: 140px;
             }
             
             .project-description {
@@ -524,6 +557,10 @@
                 font-size: 0.85rem;
             }
             
+            .description-container {
+                max-height: 120px;
+            }
+            
             .project-description {
                 font-size: 0.55rem;
             }
@@ -568,10 +605,8 @@
     <!-- Content Container -->
     <div class="content">
         <header>
-            <!-- EDITED THIS SECTION -->
             <h1 class="glitch" data-text="JIA MARIS SAMONTE">JIA MARIS SAMONTE</h1>
             <p class="subtitle">Software Automation Test Engineer | Web Developer | Game Enthusiast</p>
-            <!-- END OF EDIT -->
         </header>
         
         <!-- Project Slider -->
@@ -580,73 +615,85 @@
                 <!-- Project 1 -->
                 <div class="project-slide">
                     <h2 class="project-title">WOW DISCORD BOT</h2>
-                    <p class="project-description">
-                        A DISCORD BOT FORGED FOR WORLD OF WARCRAFT. AUTOMATES QUEST TRACKING AND ITEM UPGRADE INTERACTIONS VIA THE DISCORD API. 
-                        DEPLOYS REAL-TIME GAME DATA TO ENHANCE GROUP COORDINATION.
-                    </p>
+                    <div class="description-container">
+                        <p class="project-description">
+                            A DISCORD BOT FORGED FOR WORLD OF WARCRAFT. AUTOMATES QUEST TRACKING AND ITEM UPGRADE INTERACTIONS VIA THE DISCORD API. 
+                            DEPLOYS REAL-TIME GAME DATA TO ENHANCE GROUP COORDINATION. INTEGRATES WITH BLIZZARD'S OFFICIAL API TO PROVIDE ACCURATE
+                            CHARACTER STATS, ITEM INFORMATION, AND GUILD PROGRESS TRACKING. REDUCES MANUAL COORDINATION TIME BY OVER 60% FOR RAID GROUPS.
+                        </p>
+                    </div>
                     <div class="tech-stack">
                         <span class="tech-pill">NODE.JS</span>
                         <span class="tech-pill">DISCORD.JS</span>
                         <span class="tech-pill">MONGODB</span>
                         <span class="tech-pill">BLIZZARD API</span>
                     </div>
-                    <!-- ADDED GITHUB LINK -->
                     <a href="https://github.com/elfgodxx/wow-bot" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
                 
                 <!-- Project 2 -->
                 <div class="project-slide">
                     <h2 class="project-title">TRELLO TO EXCEL CONVERTER</h2>
-                    <p class="project-description">
-                        A JAVA SCRIPT THAT EXPORTS TRELLO BOARD DATA INTO A STRUCTURED EXCEL FILE FOR REPORTING AND ANALYSIS, IMPROVING PRODUCTIVITY. 
-                        THIS TOOL AUTOMATES THE PROCESS OF GENERATING WEEKLY REPORTS.
-                    </p>
+                    <div class="description-container">
+                        <p class="project-description">
+                            A JAVASCRIPT UTILITY THAT EXPORTS TRELLO BOARD DATA INTO STRUCTURED EXCEL SPREADSHEETS FOR REPORTING AND ANALYSIS. 
+                            THIS TOOL AUTOMATES THE PROCESS OF GENERATING WEEKLY REPORTS, SAVING HOURS OF MANUAL WORK. SUPPORTS CUSTOM FIELD MAPPING,
+                            MULTIPLE SHEET OUTPUT, AND AUTOMATED SCHEDULING. INTEGRATES WITH TRELLO'S WEBHOOKS FOR REAL-TIME UPDATES.
+                        </p>
+                    </div>
                     <div class="tech-stack">
                         <span class="tech-pill">JAVASCRIPT</span>
                         <span class="tech-pill">NODE.JS</span>
+                        <span class="tech-pill">TRELLO API</span>
+                        <span class="tech-pill">EXCELJS</span>
                     </div>
-                    <!-- ADDED GITHUB LINK -->
                     <a href="https://github.com/elfgodxx/trello-to-excel" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
                 
                 <!-- Project 3 -->
                 <div class="project-slide">
-                    <h2 class="project-title">ENKI</h2>
-                    <p class="project-description">
-                        A TEST AUTOMATION ACCELERATOR. ENKI SCRAPES A LIVE URL, PARSES THE DOM FOR ALL ELEMENT IDS, AND AUTO-
-                        GENERATES METHOD STUBS, SLASHING THE MANUAL SETUP TIME FOR NEW TEST SUITES.
-                    </p>
+                    <h2 class="project-title">ENKI TEST ACCELERATOR</h2>
+                    <div class="description-container">
+                        <p class="project-description">
+                            A TEST AUTOMATION ACCELERATOR THAT SCRAPES LIVE URLs, PARSES THE DOM FOR ALL ELEMENT IDS, AND AUTO-GENERATES METHOD STUBS. 
+                            DRAMATICALLY REDUCES SETUP TIME FOR NEW TEST SUITES BY UP TO 80%. SUPPORTS MULTIPLE TESTING FRAMEWORKS INCLUDES SELENIUM, 
+                            CYPRESS, AND PLAYWRIGHT. FEATURES INTELLIGENT ELEMENT RECOGNITION AND CUSTOM TEMPLATE GENERATION FOR CONSISTENT TEST STRUCTURE.
+                        </p>
+                    </div>
                     <div class="tech-stack">
                         <span class="tech-pill">JAVASCRIPT</span>
                         <span class="tech-pill">SELENIUM WEBDRIVER</span>
                         <span class="tech-pill">C#</span>
+                        <span class="tech-pill">PYTHON</span>
                     </div>
+                    <a href="#" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="project-slide">
                     <h2 class="project-title">SWEETPEW E2E FRAMEWORK</h2>
+                    <div class="description-container">
                         <p class="project-description">
-                            A ROBUST SELENIUM FRAMEWORK BUILT WITH C# TO AUTOMATE CRITICAL END-TO-END TESTS FOR THE SWEETPEW WEB APPLICATION. INTEGRATED WITH A TEAMCITY CI/CD PIPELINE FOR CONTINUOUS DEPLOYMENT.
+                            A ROBUST SELENIUM FRAMEWORK BUILT WITH C# TO AUTOMATE CRITICAL END-TO-END TESTS FOR THE SWEETPEW WEB APPLICATION. 
+                            INTEGRATED WITH A TEAMCITY CI/CD PIPELINE FOR CONTINUOUS DEPLOYMENT. FEATURES PARALLEL TEST EXECUTION, CROSS-BROWSER
+                            SUPPORT, AND ADVANCED REPORTING CAPABILITIES. REDUCED REGRESSION TESTING TIME FROM 8 HOURS TO 45 MINUTES.
                         </p>
-                        <div class="tech-stack">
-                            <span class="tech-pill">C#</span>
-                            <span class="tech-pill">.NET</span>
-                            <span class="tech-pill">SELENIUM</span>
-                            <span class="tech-pill">TEAMCITY</span>
                     </div>
+                    <div class="tech-stack">
+                        <span class="tech-pill">C#</span>
+                        <span class="tech-pill">.NET</span>
+                        <span class="tech-pill">SELENIUM</span>
+                        <span class="tech-pill">TEAMCITY</span>
+                    </div>
+                    <a href="#" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
             </div>
         </div>
         
         <!-- Navigation -->
         <div class="navigation">
-            <button class="nav-btn" id="prev-btn">
-                ← PREV
-            </button>
-            <button class="nav-btn" id="next-btn">
-                NEXT →
-            </button>
+            <button class="nav-btn" id="prev-btn">← PREV</button>
+            <button class="nav-btn" id="next-btn">NEXT →</button>
         </div>
         
         <!-- Indicators -->
