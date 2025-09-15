@@ -65,16 +65,14 @@
         
         /* Content Container */
         .content {
-            width: 85%;
-            max-width: 900px;
-            background: rgba(20, 10, 30, 0.9);
-            backdrop-filter: blur(5px);
+            width: 90%;
+            max-width: 800px;
+            background: rgba(13, 2, 33, 0.8);
+            backdrop-filter: blur(8px);
+            border: 4px solid #f9259d; /* Magenta Border */
             border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 100, 0.4),
-                        0 0 60px rgba(0, 100, 255, 0.3) inset;
-            border: 4px solid #ff00ff;
-            z-index: 10;
+            padding: 25px;
+            box-shadow: 0 0 30px rgba(249, 37, 157, 0.5), 0 0 60px rgba(0, 224, 255, 0.3) inset;
             position: relative;
         }
         
@@ -108,37 +106,26 @@
         /* Header */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding-bottom: 20px;
-            border-bottom: 4px dotted #00ffff;
+            border-bottom: 4px dotted #0cf; /* Dotted Cyan Line */
         }
-        
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 15px;
-            color: #ffff00;
-            text-shadow: 4px 4px 0 #ff00ff;
-            letter-spacing: -1px;
+            color: #fcee09; /* Yellow Text */
+            text-shadow: 3px 3px 0 #f9259d; /* Magenta Shadow */
         }
-        
         .subtitle {
-            font-size: 0.9rem;
-            color: #00ffff;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 0.8rem;
+            color: #0cf; /* Cyan Text */
         }
-        
-        /* Project Slider */
         .slider-container {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            margin: 30px 0;
-            height: 280px;
-            border: 4px solid #00ffff;
-            background: rgba(0, 0, 30, 0.7);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            height: 340px;
+            border: 4px solid #0cf; /* Cyan Border */
+            background: rgba(0, 0, 20, 0.7);
         }
         
         .slider {
@@ -149,23 +136,19 @@
         
         .project-slide {
             flex: 0 0 100%;
-            padding: 20px;
+            padding: 30px; 
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            background: rgba(15, 5, 25, 0.9);
-            border: 2px solid #ff00ff;
+            justify-content: space-between; /* Creates space */
+            align-items: center;
         }
         
         .project-title {
-            font-size: 1.4rem;
-            color: #ffff00;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 0 #ff00ff;
-            text-align: center;
+            font-size: 1.5rem;
+            color: #fcee09;
+            text-shadow: 3px 3px 0 #f9259d;
         }
-        
+
         .project-description {
             font-size: 0.8rem;
             line-height: 1.8;
@@ -186,12 +169,9 @@
         }
         
         .tech-pill {
-            background: rgba(0, 255, 255, 0.2);
-            color: #00ffff;
-            padding: 5px 10px;
-            border-radius: 0;
-            font-size: 0.7rem;
-            border: 2px solid #00ffff;
+            background: transparent;
+            color: #0cf;
+            border: 2px solid #0cf;
         }
         
         /* Navigation */
@@ -410,25 +390,22 @@
 
         /* GitHub Link Button */
         .github-link {
-            display: inline-block;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 8px 15px;
+            width: 100%;
+            padding: 10px;
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            color: #ffff00;
+            font-size: 0.8rem;
+            color: #fcee09;
             background: transparent;
-            border: 2px solid #ffff00;
+            border: 2px solid #fcee09;
             text-decoration: none;
+            text-align: center;
             transition: all 0.2s ease;
         }
 
         .github-link:hover {
-            background: rgba(255, 255, 0, 0.2);
-            box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
-            color: #fff;
+            background: rgba(252, 238, 9, 0.2);
+            box-shadow: 0 0 10px rgba(252, 238, 9, 0.5);
         }
-
     </style>
 </head>
 <body>
@@ -500,9 +477,22 @@
                     </p>
                     <div class="tech-stack">
                         <span class="tech-pill">JAVASCRIPT</span>
-                        <span class="tech-pill">HTML5 CANVAS</span>
-                        <span class="tech-pill">CSS3</span>
-                        <span class="tech-pill">WEBGL</span>
+                        <span class="tech-pill">SELENIUM WEBDRIVER</span>
+                        <span class="tech-pill">C#</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-slide">
+                    <h2 class="project-title">SWEETPEW SELENIUM CODEBASE</h2>
+                    <p class="project-description">
+                        A NEW SELENIUM TEST FRAMEWORK FOR OUR SWEETPEW SITE. RUNNED BY C# AND SELENIUM WEBDRIVER,
+                        THIS FRAMEWORK IS BEING MANAGED ON CI/CD TEAMCITY.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">JAVASCRIPT</span>
+                        <span class="tech-pill">SELENIUM WEBDRIVER</span>
+                        <span class="tech-pill">C#</span>
                     </div>
                 </div>
             </div>
