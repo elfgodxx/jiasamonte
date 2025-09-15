@@ -18,9 +18,11 @@
             font-family: 'Press Start 2P', cursive;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            perspective: 1000px;
             padding: 20px;
         }
         
@@ -50,59 +52,87 @@
             animation: gridMove 15s linear infinite;
         }
         
+        .grid-2 {
+            background-size: 80px 80px;
+            opacity: 0.6;
+            animation: gridMove 20s linear infinite reverse;
+        }
+        
+        .grid-3 {
+            background-size: 160px 160px;
+            opacity: 0.4;
+            animation: gridMove 30s linear infinite;
+        }
+        
         /* Content Container */
         .content {
             width: 100%;
-            max-width: 600px;
-            background: rgba(13, 2, 33, 0.9);
-            border: 4px solid #f9259d;
+            max-width: 800px;
+            background: rgba(13, 2, 33, 0.8);
+            backdrop-filter: blur(8px);
+            border: 4px solid #f9259d; /* Magenta Border */
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 0 30px rgba(249, 37, 157, 0.5), 0 0 60px rgba(0, 224, 255, 0.3) inset;
             position: relative;
+            margin: 20px 0;
+        }
+        
+        /* Pixelated corners */
+        .content::before, .content::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ff00ff;
+        }
+        
+        .content::before {
+            top: -4px;
+            left: -4px;
+            box-shadow: 
+                0 16px #ff00ff,
+                16px 0 #ff00ff,
+                16px 16px #ff00ff;
+        }
+        
+        .content::after {
+            bottom: -4px;
+            right: -4px;
+            box-shadow: 
+                0 -16px #ff00ff,
+                -16px 0 #ff00ff,
+                -16px -16px #ff00ff;
         }
         
         /* Header */
         header {
             text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 4px dotted #0cf;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 4px dotted #0cf; /* Dotted Cyan Line */
         }
         
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #fcee09;
-            text-shadow: 3px 3px 0 #f9259d;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #fcee09; /* Yellow Text */
+            text-shadow: 2px 2px 0 #f9259d; /* Magenta Shadow */
             line-height: 1.4;
         }
         
-        .name-container {
-            margin-bottom: 15px;
-        }
-        
-        .first-name, .last-name {
-            display: block;
-        }
-        
-        .last-name {
-            margin-top: 5px;
-        }
-        
         .subtitle {
-            font-size: 0.8rem;
-            color: #0cf;
+            font-size: 0.7rem;
+            color: #0cf; /* Cyan Text */
             line-height: 1.6;
-            margin-top: 15px;
         }
         
-        /* Project Slider */
         .slider-container {
             position: relative;
             overflow: hidden;
-            height: 380px;
-            border: 4px solid #0cf;
+            height: auto;
+            min-height: 420px;
+            border: 4px solid #0cf; /* Cyan Border */
             background: rgba(0, 0, 20, 0.7);
             margin: 0 auto;
         }
@@ -119,46 +149,54 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            min-height: 420px;
         }
         
         .project-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #fcee09;
             text-shadow: 2px 2px 0 #f9259d;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.4;
         }
 
         .project-description {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             line-height: 1.8;
             color: #ffffff;
+            margin-bottom: 20px;
             text-align: center;
-            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 15px;
             justify-content: center;
             margin-bottom: 20px;
         }
         
+        /* Adjusted tech-pill padding as requested */
         .tech-pill {
             background: transparent;
             color: #0cf;
-            padding: 8px 12px;
+            padding: 8px 12px; /* Increased padding for better appearance */
             font-size: 0.7rem;
             border: 2px solid #0cf;
+            line-height: 1.4;
         }
         
         /* Navigation */
         .navigation {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 20px;
         }
         
@@ -166,29 +204,37 @@
             background: rgba(255, 0, 255, 0.2);
             color: #ff00ff;
             border: 2px solid #ff00ff;
-            padding: 10px 20px;
+            padding: 10px 16px;
+            border-radius: 0;
             cursor: pointer;
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             transition: all 0.2s ease;
+            image-rendering: pixelated;
         }
         
         .nav-btn:hover {
             background: rgba(255, 0, 255, 0.4);
             box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
         }
         
         /* Indicators */
         .indicators {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
         }
         
         .indicator {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             background: rgba(0, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -200,22 +246,6 @@
             box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
         }
         
-        /* GitHub Link Button */
-        .github-link {
-            width: 100%;
-            max-width: 280px;
-            padding: 10px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.75rem;
-            color: #fcee09;
-            background: transparent;
-            border: 2px solid #fcee09;
-            text-decoration: none;
-            text-align: center;
-            margin: 0 auto;
-            display: block;
-        }
-
         /* Animations */
         @keyframes gridMove {
             0% {
@@ -226,11 +256,144 @@
             }
         }
         
+        /* 8-bit sprites */
+        .sprite {
+            position: absolute;
+            image-rendering: pixelated;
+            z-index: -1;
+        }
+        
+        .sprite-1 {
+            top: 10%;
+            left: 5%;
+            width: 40px;
+            height: 40px;
+            background: #ff00ff;
+            box-shadow: 
+                0 0 0 4px #0a0a1a,
+                0 0 0 8px #ff00ff;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .sprite-2 {
+            top: 20%;
+            right: 10%;
+            width: 30px;
+            height: 30px;
+            background: #00ffff;
+            box-shadow: 
+                0 0 0 3px #0a0a1a,
+                0 0 0 6px #00ffff;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        .sprite-3 {
+            bottom: 15%;
+            left: 15%;
+            width: 25px;
+            height: 25px;
+            background: #ffff00;
+            box-shadow: 
+                0 0 0 3px #0a0a1a,
+                0 0 0 6px #ffff00;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(20px, -20px) rotate(10deg);
+            }
+        }
+        
+        /* Scanlines effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                    rgba(255, 255, 255, 0.03) 50%, 
+                    rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        /* Glitch effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip: rect(0, 0, 0, 0);
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            animation: glitch-animation 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: 1px 0 blue;
+            animation: glitch-animation 3s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-animation {
+            0% { clip: rect(42px, 9999px, 44px, 0); } 5% { clip: rect(12px, 9999px, 59px, 0); } 10% { clip: rect(48px, 9999px, 29px, 0); } 15% { clip: rect(42px, 9999px, 73px, 0); } 20% { clip: rect(63px, 9999px, 27px, 0); } 25% { clip: rect(34px, 9999px, 55px, 0); } 30% { clip: rect(86px, 9999px, 73px, 0); } 35% { clip: rect(20px, 9999px, 20px, 0); } 40% { clip: rect(26px, 9999px, 60px, 0); } 45% { clip: rect(25px, 9999px, 66px, 0); } 50% { clip: rect(57px, 9999px, 98px, 0); } 55% { clip: rect(5px, 9999px, 46px, 0); } 60% { clip: rect(82px, 9999px, 31px, 0); } 65% { clip: rect(54px, 9999px, 27px, 0); } 70% { clip: rect(28px, 9999px, 99px, 0); } 75% { clip: rect(45px, 9999px, 69px, 0); } 80% { clip: rect(23px, 9999px, 85px, 0); } 85% { clip: rect(54px, 9999px, 84px, 0); } 90% { clip: rect(45px, 9999px, 47px, 0); } 95% { clip: rect(24px, 9999px, 23px, 0); } 100% { clip: rect(32px, 9999px, 92px, 0); }
+        }
+
+        /* GitHub Link Button */
+        .github-link {
+            width: 100%;
+            max-width: 280px;
+            padding: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: #fcee09;
+            background: transparent;
+            border: 2px solid #fcee09;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s ease;
+            margin: 0 auto;
+        }
+
+        .github-link:hover {
+            background: rgba(252, 238, 9, 0.2);
+            box-shadow: 0 0 10px rgba(252, 238, 9, 0.5);
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) {
+            .nav-btn:hover, .github-link:hover {
+                background: rgba(255, 0, 255, 0.2);
+                box-shadow: none;
+            }
+            
+            .nav-btn:active, .github-link:active {
+                background: rgba(255, 0, 255, 0.4);
+                box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+            }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
                 display: block;
+                overflow-y: auto;
             }
             
             .content {
@@ -238,11 +401,16 @@
             }
             
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             .subtitle {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+            }
+            
+            .project-slide {
+                padding: 15px;
+                min-height: 450px;
             }
             
             .project-title {
@@ -250,35 +418,8 @@
             }
             
             .project-description {
-                font-size: 0.7rem;
-            }
-            
-            .slider-container {
-                height: 420px;
-            }
-            
-            .nav-btn {
-                padding: 8px 16px;
-                font-size: 0.7rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.3rem;
-            }
-            
-            .project-title {
-                font-size: 0.9rem;
-            }
-            
-            .project-description {
                 font-size: 0.65rem;
                 line-height: 1.7;
-            }
-            
-            .slider-container {
-                height: 460px;
             }
             
             .tech-pill {
@@ -286,32 +427,50 @@
                 padding: 6px 10px;
             }
             
-            .nav-btn {
-                padding: 7px 14px;
-                font-size: 0.65rem;
-            }
-            
             .github-link {
                 font-size: 0.65rem;
                 padding: 8px;
             }
+            
+            .nav-btn {
+                padding: 8px 14px;
+                font-size: 0.65rem;
+            }
+            
+            .grid-container {
+                transform: rotateX(75deg) translateZ(-500px);
+            }
+            
+            .sprite-1, .sprite-2, .sprite-3 {
+                display: none; /* Hide sprites on mobile for better performance */
+            }
         }
         
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             h1 {
                 font-size: 1.1rem;
+                line-height: 1.4;
+            }
+            
+            .subtitle {
+                font-size: 0.6rem;
             }
             
             .project-title {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
             
             .project-description {
                 font-size: 0.6rem;
+                line-height: 1.7;
             }
             
-            .slider-container {
-                height: 480px;
+            .project-slide {
+                min-height: 480px;
+            }
+            
+            .tech-stack {
+                gap: 8px;
             }
             
             .tech-pill {
@@ -319,8 +478,67 @@
                 padding: 5px 8px;
             }
             
+            .github-link {
+                font-size: 0.6rem;
+            }
+            
+            .navigation {
+                gap: 10px;
+            }
+            
             .nav-btn {
                 font-size: 0.6rem;
+                padding: 7px 12px;
+            }
+            
+            .content::before, .content::after {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .content::before {
+                top: -4px;
+                left: -4px;
+                box-shadow: 
+                    0 12px #ff00ff,
+                    12px 0 #ff00ff,
+                    12px 12px #ff00ff;
+            }
+            
+            .content::after {
+                bottom: -4px;
+                right: -4px;
+                box-shadow: 
+                    0 -12px #ff00ff,
+                    -12px 0 #ff00ff,
+                    -12px -12px #ff00ff;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 1rem;
+            }
+            
+            .project-title {
+                font-size: 0.85rem;
+            }
+            
+            .project-description {
+                font-size: 0.55rem;
+            }
+            
+            .tech-pill {
+                font-size: 0.55rem;
+                padding: 4px 7px;
+            }
+            
+            .github-link {
+                font-size: 0.55rem;
+            }
+            
+            .project-slide {
+                min-height: 500px;
             }
         }
 
@@ -335,15 +553,25 @@
     <!-- 8-bit 3D Grid Background -->
     <div class="grid-container">
         <div class="grid"></div>
+        <div class="grid grid-2"></div>
+        <div class="grid grid-3"></div>
     </div>
+    
+    <!-- 8-bit Sprites -->
+    <div class="sprite sprite-1"></div>
+    <div class="sprite sprite-2"></div>
+    <div class="sprite sprite-3"></div>
+    
+    <!-- Scanlines Effect -->
+    <div class="scanlines"></div>
     
     <!-- Content Container -->
     <div class="content">
         <header>
-            <div class="name-container">
-                <span class="first-name">JIA MARIS SAMONTE</span>
-            </div>
+            <!-- EDITED THIS SECTION -->
+            <h1 class="glitch" data-text="JIA MARIS SAMONTE">JIA MARIS SAMONTE</h1>
             <p class="subtitle">Software Automation Test Engineer | Web Developer | Game Enthusiast</p>
+            <!-- END OF EDIT -->
         </header>
         
         <!-- Project Slider -->
@@ -353,7 +581,8 @@
                 <div class="project-slide">
                     <h2 class="project-title">WOW DISCORD BOT</h2>
                     <p class="project-description">
-                        A DISCORD BOT FORGED FOR WORLD OF WARCRAFT. AUTOMATES QUEST TRACKING AND ITEM UPGRADE INTERACTIONS VIA THE DISCORD API. DEPLOYS REAL-TIME GAME DATA TO ENHANCE GROUP COORDINATION.
+                        A DISCORD BOT FORGED FOR WORLD OF WARCRAFT. AUTOMATES QUEST TRACKING AND ITEM UPGRADE INTERACTIONS VIA THE DISCORD API. 
+                        DEPLOYS REAL-TIME GAME DATA TO ENHANCE GROUP COORDINATION.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-pill">NODE.JS</span>
@@ -361,6 +590,7 @@
                         <span class="tech-pill">MONGODB</span>
                         <span class="tech-pill">BLIZZARD API</span>
                     </div>
+                    <!-- ADDED GITHUB LINK -->
                     <a href="https://github.com/elfgodxx/wow-bot" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
                 
@@ -368,12 +598,14 @@
                 <div class="project-slide">
                     <h2 class="project-title">TRELLO TO EXCEL CONVERTER</h2>
                     <p class="project-description">
-                        A JAVASCRIPT TOOL THAT EXPORTS TRELLO BOARD DATA INTO A STRUCTURED EXCEL FILE FOR REPORTING AND ANALYSIS, IMPROVING PRODUCTIVITY. THIS TOOL AUTOMATES THE PROCESS OF GENERATING WEEKLY REPORTS.
+                        A JAVA SCRIPT THAT EXPORTS TRELLO BOARD DATA INTO A STRUCTURED EXCEL FILE FOR REPORTING AND ANALYSIS, IMPROVING PRODUCTIVITY. 
+                        THIS TOOL AUTOMATES THE PROCESS OF GENERATING WEEKLY REPORTS.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-pill">JAVASCRIPT</span>
                         <span class="tech-pill">NODE.JS</span>
                     </div>
+                    <!-- ADDED GITHUB LINK -->
                     <a href="https://github.com/elfgodxx/trello-to-excel" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
                 
@@ -381,37 +613,40 @@
                 <div class="project-slide">
                     <h2 class="project-title">ENKI</h2>
                     <p class="project-description">
-                        A TEST AUTOMATION ACCELERATOR. ENKI SCRAPES A LIVE URL, PARSES THE DOM FOR ALL ELEMENT IDS, AND AUTO-GENERATES METHOD STUBS, SLASHING THE MANUAL SETUP TIME FOR NEW TEST SUITES.
+                        A TEST AUTOMATION ACCELERATOR. ENKI SCRAPES A LIVE URL, PARSES THE DOM FOR ALL ELEMENT IDS, AND AUTO-
+                        GENERATES METHOD STUBS, SLASHING THE MANUAL SETUP TIME FOR NEW TEST SUITES.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-pill">JAVASCRIPT</span>
                         <span class="tech-pill">SELENIUM WEBDRIVER</span>
                         <span class="tech-pill">C#</span>
                     </div>
-                    <a href="#" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="project-slide">
                     <h2 class="project-title">SWEETPEW E2E FRAMEWORK</h2>
-                    <p class="project-description">
-                        A ROBUST SELENIUM FRAMEWORK BUILT WITH C# TO AUTOMATE CRITICAL END-TO-END TESTS FOR THE SWEETPEW WEB APPLICATION. INTEGRATED WITH A TEAMCITY CI/CD PIPELINE FOR CONTINUOUS DEPLOYMENT.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-pill">C#</span>
-                        <span class="tech-pill">.NET</span>
-                        <span class="tech-pill">SELENIUM</span>
-                        <span class="tech-pill">TEAMCITY</span>
+                        <p class="project-description">
+                            A ROBUST SELENIUM FRAMEWORK BUILT WITH C# TO AUTOMATE CRITICAL END-TO-END TESTS FOR THE SWEETPEW WEB APPLICATION. INTEGRATED WITH A TEAMCITY CI/CD PIPELINE FOR CONTINUOUS DEPLOYMENT.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-pill">C#</span>
+                            <span class="tech-pill">.NET</span>
+                            <span class="tech-pill">SELENIUM</span>
+                            <span class="tech-pill">TEAMCITY</span>
                     </div>
-                    <a href="#" class="github-link" target="_blank">VIEW ON GITHUB</a>
                 </div>
             </div>
         </div>
         
         <!-- Navigation -->
         <div class="navigation">
-            <button class="nav-btn" id="prev-btn">← PREV</button>
-            <button class="nav-btn" id="next-btn">NEXT →</button>
+            <button class="nav-btn" id="prev-btn">
+                ← PREV
+            </button>
+            <button class="nav-btn" id="next-btn">
+                NEXT →
+            </button>
         </div>
         
         <!-- Indicators -->
@@ -476,6 +711,25 @@
                 prevBtn.click();
             }
         });
+        
+        // Add parallax effect to grid on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.clientX) / 25;
+            const y = (window.innerHeight / 2 - e.clientY) / 25;
+            
+            document.querySelector('.grid-container').style.transform = 
+                `rotateX(75deg) translateZ(-200px) rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+        
+        // Add occasional glitch effect to title
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                document.querySelector('h1').classList.add('glitch');
+                setTimeout(() => {
+                    document.querySelector('h1').classList.remove('glitch');
+                }, 200);
+            }
+        }, 5000);
         
         // Touch swipe support for mobile
         slider.addEventListener('touchstart', (e) => {
