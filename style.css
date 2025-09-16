@@ -166,3 +166,103 @@ h1 { font-size: 1.5rem; margin-bottom: 12px; color: #fcee09; text-shadow: 2px 2p
 
 /* Prevent horizontal scrolling */
 html, body { max-width: 100%; overflow-x: hidden; }
+
+/* --- THIS IS THE NEW RESPONSIVE CODE --- */
+
+/* For Tablets and Large Phones (screens below 768px) */
+@media (max-width: 768px) {
+    body {
+        /* Allow vertical scrolling on mobile */
+        display: block;
+        overflow-y: auto;
+        padding: 15px;
+    }
+
+    .content {
+        width: 95%;
+        padding: 15px;
+        margin-top: 50px; /* Adjust for banner */
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.65rem;
+    }
+
+    .project-slide {
+        padding: 15px;
+        min-height: 450px; /* Allow more height for wrapped text */
+    }
+
+    .project-title {
+        font-size: 1rem;
+    }
+
+    .description-container {
+        max-height: 160px;
+    }
+
+    .project-description {
+        font-size: 0.65rem;
+    }
+
+    .tech-pill {
+        font-size: 0.65rem;
+        padding: 6px 10px;
+    }
+
+    .github-link, .nav-btn {
+        font-size: 0.65rem;
+        padding: 8px 14px;
+    }
+
+    /* Hide performance-heavy sprites on mobile */
+    .sprite-1, .sprite-2, .sprite-3 {
+        display: none;
+    }
+
+    .music-player {
+        width: 220px;
+        right: 10px;
+        bottom: 70px; /* Adjusted for toggle button */
+    }
+
+    .player-toggle {
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+/* For Smaller Phones (screens below 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    .project-title {
+        font-size: 0.9rem;
+    }
+
+    .project-slide {
+        min-height: 480px;
+    }
+
+    .tech-stack {
+        gap: 8px;
+    }
+    
+    .tech-pill, .github-link, .nav-btn {
+        font-size: 0.6rem;
+    }
+
+    /* Make the player float above content on very small screens */
+    .music-player {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        bottom: 70px;
+    }
+}
