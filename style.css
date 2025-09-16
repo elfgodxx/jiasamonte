@@ -570,7 +570,17 @@ h1 {
     color: #fcee09;
 }
 
-/* ...existing code... */
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    outline: none;
+    margin: 0;
+}
+
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -594,7 +604,7 @@ h1 {
 
 .player-toggle {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     right: 20px;
     background: #f9259d;
     border: 2px solid #0cf;
@@ -609,169 +619,6 @@ h1 {
     z-index: 101;
     font-size: 1.2rem;
     box-shadow: 0 0 10px rgba(249, 37, 157, 0.7);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-        display: block;
-        overflow-y: auto;
-    }
-
-    .wip-banner {
-        font-size: 0.7rem;
-        padding: 10px;
-    }
-
-    .content {
-        padding: 15px;
-        margin-top: 50px;
-    }
-
-    h1 {
-        font-size: 1.3rem;
-    }
-
-    .subtitle {
-        font-size: 0.65rem;
-    }
-
-    .project-slide {
-        padding: 15px;
-        min-height: 450px;
-    }
-
-    .project-title {
-        font-size: 1rem;
-    }
-
-    .description-container {
-        max-height: 160px;
-    }
-
-    .project-description {
-        font-size: 0.65rem;
-        line-height: 1.7;
-    }
-
-    .tech-pill {
-        font-size: 0.65rem;
-        padding: 6px 10px;
-    }
-
-    .github-link {
-        font-size: 0.65rem;
-        padding: 8px;
-    }
-
-    .nav-btn {
-        padding: 8px 14px;
-        font-size: 0.65rem;
-    }
-
-    .grid-container {
-        transform: rotateX(75deg) translateZ(-500px);
-    }
-
-    .sprite-1,
-    .sprite-2,
-    .sprite-3 {
-        display: none;
-    }
-
-    .music-player {
-        width: 220px;
-        right: 10px;
-        bottom: 10px;
-    }
-
-    .player-toggle {
-        right: 10px;
-        bottom: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.1rem;
-        line-height: 1.4;
-    }
-
-    .subtitle {
-        font-size: 0.6rem;
-    }
-
-    .project-title {
-        font-size: 0.9rem;
-    }
-
-    .description-container {
-        max-height: 140px;
-    }
-
-    .project-description {
-        font-size: 0.6rem;
-        line-height: 1.7;
-    }
-
-    .project-slide {
-        min-height: 480px;
-    }
-
-    .tech-stack {
-        gap: 8px;
-    }
-
-    .tech-pill {
-        font-size: 0.6rem;
-        padding: 5px 8px;
-    }
-
-    .github-link {
-        font-size: 0.6rem;
-    }
-
-    .navigation {
-        gap: 10px;
-    }
-
-    .nav-btn {
-        font-size: 0.6rem;
-        padding: 7px 12px;
-    }
-
-    .content::before,
-    .content::after {
-        width: 12px;
-        height: 12px;
-    }
-
-    .content::before {
-        top: -4px;
-        left: -4px;
-        box-shadow: 0 12px #ff00ff, 12px 0 #ff00ff, 12px 12px #ff00ff;
-    }
-
-    .content::after {
-        bottom: -4px;
-        right: -4px;
-        box-shadow: 0 -12px #ff00ff, -12px 0 #ff00ff, -12px -12px #ff00ff;
-    }
-
-    .music-player {
-        width: 90%;
-        right: 5%;
-        left: 5%;
-        bottom: 70px;
-    }
-}
-
-/* Prevent horizontal scrolling */
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
 }
 
 /* --- THIS IS THE NEW RESPONSIVE CODE --- */
@@ -845,7 +692,7 @@ body {
 
     .player-toggle {
         right: 10px;
-        bottom: 10px;
+        bottom: -10px;
     }
 }
 
