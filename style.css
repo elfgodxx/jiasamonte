@@ -135,7 +135,7 @@ h1 { font-size: 1.5rem; margin-bottom: 12px; color: #fcee09; text-shadow: 2px 2p
 .github-link:hover { background: rgba(252, 238, 9, 0.2); box-shadow: 0 0 10px rgba(252, 238, 9, 0.5); }
 
 /* Music Player */
-.music-player { position: fixed; bottom: 20px; right: 20px; background: rgba(13, 2, 33, 0.9); border: 3px solid #f9259d; padding: 10px; border-radius: 8px; z-index: 100; width: 250px; box-shadow: 0 0 15px rgba(249, 37, 157, 0.7); }
+.music-player { position: fixed; bottom: 70px; right: 20px; background: rgba(13, 2, 33, 0.9); border: 3px solid #f9259d; padding: 10px; border-radius: 8px; z-index: 100; width: 250px; box-shadow: 0 0 15px rgba(249, 37, 157, 0.7); }
 .player-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 2px dotted #0cf; padding-bottom: 5px; }
 .player-title { font-size: 0.7rem; color: #fcee09; }
 .player-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
