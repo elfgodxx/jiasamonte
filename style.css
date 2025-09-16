@@ -591,17 +591,6 @@ h1 {
     border: 2px solid #0a0a1a;
 }
 
-/* ...existing code... */
-.volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #f9259d;
-    cursor: pointer;
-    border: 2px solid #0a0a1a;
-}
-
 .player-toggle {
     position: fixed;
     bottom: 10px;
@@ -635,8 +624,7 @@ h1 {
     .content {
         width: 95%;
         padding: 15px;
-        margin-top: 50px;
-        /* Adjust for banner */
+        margin: 50px auto 20px auto; /* Top, auto-center, bottom, auto-center */
     }
 
     h1 {
